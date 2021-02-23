@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'com.latitude'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+dependencies {
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.0'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.14.0'
+    testRuntime group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.5.2'
+}
